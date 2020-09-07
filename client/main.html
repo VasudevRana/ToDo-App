@@ -1,0 +1,77 @@
+<head>
+  <title>ToDo</title>
+</head>
+
+<body>
+
+  <div class="container ">
+    <header>
+      {{> loginButtons align="right"}}
+    </header>
+    <section>
+      <h1>
+        Monthly ToDo List:-
+      </h1>
+      {{#if currentUser}}
+      <form class="new-todo">
+
+        <input type="text" name="title" placeholder="Enter the task">
+        <input type="submit" value="Submit" class="submit ">
+      </form>
+      {{/if}}
+    </section>
+    <ul>
+      {{#each resolutions}}
+      {{>resolution}}
+      {{/each}}
+    </ul>
+  </div>
+  <section>
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+    </fb:login-button>
+  </section>
+
+  <script>
+    function checkLoginState() {
+      FB.getLoginStatus(function (response) {
+        statusChangeCallback(response);
+      });
+    }
+    window.fbAsyncInit = function () {
+      FB.init({
+        appId: '{your-app-id}',
+        cookie: true,
+        xfbml: true,
+        version: '{api-version}'
+      });
+
+      FB.AppEvents.logPageView();
+
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = "https://connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+
+    FB.getLoginStatus(function (response) {
+      statusChangeCallback(response);
+
+    });
+
+
+  </script>
+</body>
+
+
+<template name="resolution">
+  <li class="{{#if check}}check{{/if}}">
+    <input type="checkbox" name="packersOff" class="strikethrough" value="1" checked="{{checked}}">
+    <span class="text">{{title}}</span>
+    <button class="delete">Remove</button>
+  </li>
+</template>
