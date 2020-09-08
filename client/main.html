@@ -10,7 +10,7 @@
     </header>
     <section>
       <h1>
-        Monthly ToDo List:-
+        Daily ToDo List:-
       </h1>
       {{#if currentUser}}
       <form class="new-todo">
@@ -69,9 +69,22 @@
 
 
 <template name="resolution">
-  <li class="{{#if check}}check{{/if}}">
+  <li class="{{#if checked}}checked{{/if}}">
     <input type="checkbox" name="packersOff" class="strikethrough" value="1" checked="{{checked}}">
     <span class="text">{{title}}</span>
+    <!-- {{#if isOwner}}
+    
+    {{/if}} -->
+    {{#if isOwner}}
+
     <button class="delete">Remove</button>
+    <button class="toggle-private">
+      {{#if private}}
+      Private
+      {{else}}
+      Public
+      {{/if}}
+    </button>
+    {{/if}}
   </li>
 </template>
