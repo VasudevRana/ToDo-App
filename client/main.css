@@ -54,6 +54,7 @@ h1{
   font-size: 1.4em;
   border-bottom: 1px solid rgba(255,255,255,1);
   color:#fff;
+  
 
 }
 .new-todo input:focus{
@@ -91,6 +92,7 @@ ul{
 }
 .delete{
   float:right;
+  margin: 3px;
   font-weight: 600px;
   background:white;
   color:red;
@@ -110,6 +112,9 @@ ul{
   border-radius:0px;
   transition: all ease 0s;
   
+}
+.delete:focus{
+  outline: none;
 }
 li{
   position: relative;
@@ -147,3 +152,31 @@ li .check .text{
   text-decoration:underline;
   line-height: 10px;
 } */
+
+.toggle-private{
+    margin: 3px;
+    float:right;
+    font-weight: 600px;
+    background:white;
+    color:red;
+    font-size:1em;
+    padding:5px 5px;
+    border: none;
+    border-radius:10px;
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    width:10%;
+  }
+  .toggle-private:hover{
+    background:transparent;
+    color:#fff;
+    border:none;
+    border-bottom:1px solid rgba(255,255,255,1);
+    border-radius:0px;
+    transition: all ease 0s;
+    
+  
+}
+.toggle-private:focus{
+  outline:none;
+}
